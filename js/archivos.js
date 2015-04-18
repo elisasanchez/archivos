@@ -19,7 +19,7 @@ var archivos = {
             navigator.notification.alert('El archivo fre creado satisfactoriamente', null,'Archivos','Aceptar');
         }
     },
-    error: function() {
+    error: function(err) {
         navigator.notification.alert('Error: ' + err.code, null, 'Archivos'. '¿Ya qué?');
     },
     leer: function() {

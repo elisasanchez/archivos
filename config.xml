@@ -22,6 +22,7 @@
             Elisa G. Sánchez
         </author>
         
-        <gap:plugin name="org.apache.cordova.file" />        
+        <gap:plugin name="org.apache.cordova.file" /> 
+        <gap:plugin name="org.apache.cordova.dialogs" />
 
     </widget>
