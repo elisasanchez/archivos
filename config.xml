@@ -12,17 +12,19 @@
         
         <icon src="img/logo.png" />
 
-        <name>Archivos y contactos</name>
+        <name>Contactos y Archivos</name>
 
         <description>
             Aplicación que utiliza la API para archivos y contactos de Phonegap
         </description>
 
-        <author href="http://cenet.mx" email="you@youremail.com">
-            Elisa G. Sánchez
+        <author href="http://cenet.mx" email="drako_0@hotmail.com.com">
+            Elisa G. Sanchez
         </author>
         
-        <gap:plugin name="org.apache.cordova.file" /> 
+        <gap:plugin name="org.apache.cordova.file" />
         <gap:plugin name="org.apache.cordova.dialogs" />
+        <gap:plugin name="org.apache.cordova.contacts" />
+        
 
     </widget>

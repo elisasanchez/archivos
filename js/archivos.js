@@ -1,43 +1,38 @@
 //archivos
 var archivos = {
-    escribir: function() {
-        //var cont = $('#aSend').val();
-        //alert(cont);
-        //Pedimos permiso al acceso de archivos
+    escribir: function(){
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, archivos.accesoAlSistema, archivos.error);
     },
-    accesoAlSistema: function(sa) {//Resive el sistema de archivos
+    accesoAlSistema: function(sa){//Recibe el sistema de archivos
         sa.root.getFile('practica.txt',{create: true, exclusive: false},archivos.accesoArchivo,archivos.error);
     },
-    accesoArchivo: function(ea) { //Recibe la entrada del archivo
+    accesoArchivo: function(ea){//Recibe la entrada del archivo
         ea.createWriter(archivos.escritor,archivos.error);
     },
-    escritor: function(e) {//Obtenemos el escritor como objeto
+    escritor: function(e){//Obtenemos el escritor como objeto
         var cont = $('#aSend').val();
         e.write(cont);
-        e.onwriteend = function(evt) {
-            navigator.notification.alert('El archivo fre creado satisfactoriamente', null,'Archivos','Aceptar');
+        e.onwriteend = function(evt){
+            navigator.notification.alert('El archivo fue creado satisfactoriamente',null,'Arhivos','Aceptar');
         }
     },
-    error: function(err) {
-        navigator.notification.alert('Error: ' + err.code, null, 'Archivos'. '¿Ya qué?');
+    error: function(err){
+        navigator.notification.alert('Error: '+err.code,null,'Archivos','¿Ya qué?');
     },
-    leer: function() {
-        //Permiso al acceso de archivos
-        window.requestFileSystem(LocalFileSystem.PERSISTENT,0,archivos.accesoSistema,archivos.error);
+    leer: function(){
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, archivos.accesoSistema, archivos.error);
     },
-    accesoSistema: function(sa) {
+    accesoSistema: function(sa){
         sa.root.getFile('practica.txt',null,archivos.accesoFile,archivos.error);
     },
-    accesoFile: function(ea) {
+    accesoFile: function(ea){
         ea.file(archivos.lector,archivos.error);
     },
-    lector: function(a) {
-        //Creamos la instancia del lector
+    lector: function(a){
         var lector = new FileReader();
         lector.readAsText(a);
-        lector.onloadend = function(evt) {
+        lector.onloadend = function(evt){
             $('#aGet').text(evt.target.result);
         }
     }
-}
+};
